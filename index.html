@@ -34,26 +34,22 @@
                 <button id="start-capture" class="btn"><i class="fa fa-camera fa-3x fa-fw"></i></button>
                 <button id="capture-running" class="btn" style="display: none;"><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i></button>
                 <span id="info-text" style="display: none;">Aguarde</span>
+
+                <button type="button" class="btn" onclick="_clearImage()"><i class="fa fa-trash fa-3x fa-fw"></i>clear image</button>
             </div>
             <canvas id="canvas" class="d-none"></canvas>
         </div>
 
         <script>
-            $(document).ready(function() {
-                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-                if (navigator.getUserMedia) {
-                    alert("Support")
-                } else {
-                    alert("Not support")
-                }
-                // if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
-                //     alert("Support")
-                //     navigator.mediaDevices.getUserMedia({video: true})
-                // } else {
-                //     console.log("Not support")
-                //     alert("Not support")
-                // }
-            });
+            // $(document).ready(function() {
+            //     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+            //         alert("Support")
+            //         navigator.mediaDevices.getUserMedia({video: true})
+            //     } else {
+            //         console.log("Not support")
+            //         alert("Not support")
+            //     }
+            // });
 
             const webcamElement = document.getElementById('webcam');
             const canvasElement = document.getElementById('canvas');
@@ -221,6 +217,10 @@
 
             main();
 
+            function _clearImage() {
+                document.getElementById('canvas').width = 0
+                document.getElementById('canvas').height = 0
+            }
         </script>
 
     </body>
